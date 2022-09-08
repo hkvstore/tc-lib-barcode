@@ -46,7 +46,7 @@ abstract class Type extends \Com\Tecnick\Barcode\Type\Convert
      * @var string
      */
     protected $format = '';
-    
+
     /**
      * Array containing extra parameters for the specified barcode type
      *
@@ -96,7 +96,7 @@ abstract class Type extends \Com\Tecnick\Barcode\Type\Convert
      * @var float
      */
     protected $width;
-    
+
     /**
      * Barcode height
      *
@@ -541,7 +541,7 @@ abstract class Type extends \Com\Tecnick\Barcode\Type\Convert
         $bar_color = imagecolorallocate($img, $rgbcolor['R'], $rgbcolor['G'], $rgbcolor['B']);
         $bars = $this->getBarsArray('XYXY');
         foreach ($bars as $rect) {
-            imagefilledrectangle($img, $rect[0], $rect[1], $rect[2], $rect[3], $bar_color);
+            imagefilledrectangle($img, ceil($rect[0]), ceil($rect[1]), ceil($rect[2]), ceil($rect[3]), $bar_color);
         }
         return $img;
     }
